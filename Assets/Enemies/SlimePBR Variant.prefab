@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimePBR Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4047972025199878, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -89,9 +93,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.58249265
-  m_Height: 1.1649855
+  m_Height: 1.983683
   m_Direction: 1
-  m_Center: {x: 0.022249758, y: 0.45868224, z: -9.414353e-17}
+  m_Center: {x: 0.022249758, y: 0.86803097, z: -9.414353e-17}
 --- !u!114 &5304446406559142717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,3 +110,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -5
   dead: 0
+  health: 3
+  maxHealth: 3

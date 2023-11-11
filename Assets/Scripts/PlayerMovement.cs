@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float limitValue;
     public Slider sliderPos;
 
+
     void Start()
     {
         sliderPos.value = 0;
@@ -24,4 +25,5 @@ public class PlayerMovement : MonoBehaviour
         float Xpos = sliderPos.value * limitValue;
         playerTransform.transform.position = new Vector3(Xpos, -0.4f, -2.5f);
     }
+   
 }

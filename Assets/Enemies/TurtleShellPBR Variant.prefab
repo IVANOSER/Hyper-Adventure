@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurtleShellPBR Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1524411113276028, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4544219117696442, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -89,9 +93,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.0608699
+  m_Height: 1.8647349
   m_Direction: 1
-  m_Center: {x: -0, y: 0.37851322, z: 0}
+  m_Center: {x: -0, y: 0.7804457, z: 0}
 --- !u!114 &2174588053828347138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,3 +110,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -3
   dead: 0
+  health: 7
+  maxHealth: 7

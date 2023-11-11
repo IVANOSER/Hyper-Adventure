@@ -1028,7 +1028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497406042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.182, z: 0.606}
+  m_LocalPosition: {x: 0, y: 0.182, z: 0.92}
   m_LocalScale: {x: 3.7659013, y: 0.042073, z: 0.13828}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2072,6 +2072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 136275810615880682, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
 --- !u!1001 &1207409700
@@ -2470,6 +2474,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411145619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411145620}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411145620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411145619}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.64, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 761241802}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1502551331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2611,6 +2646,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1528715327}
   - component: {fileID: 1528715328}
+  - component: {fileID: 1528715329}
+  - component: {fileID: 1528715330}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2650,6 +2687,34 @@ MonoBehaviour:
   playerTransform: {fileID: 761241802}
   limitValue: 3.5
   sliderPos: {fileID: 1255405840}
+--- !u!114 &1528715329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528715325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa16fb3c6d90b64c870eb597b488aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1528715330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528715325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f1d3cd94479ec45b6c7ff574546c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 1411145620}
+  bulletPrefab: {fileID: 4084253116231811501, guid: 45b5853e09238924d8294237b6139c20, type: 3}
+  bulletSpeed: 50
+  timer: 0.2
 --- !u!4 &1530657217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4030811187299374, guid: de4d7d45706bba64093bd478a8d6c363, type: 3}
@@ -2926,8 +2991,8 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 7991814900635380360, guid: 3caa096d9f9bccb4188f679f800c6e9b, type: 3}
-    - {fileID: 2174588053828347138, guid: 92368b37df9f28a41bb8cfc43cf35777, type: 3}
     - {fileID: 7991814900635380360, guid: 3caa096d9f9bccb4188f679f800c6e9b, type: 3}
+    - {fileID: 2174588053828347138, guid: 92368b37df9f28a41bb8cfc43cf35777, type: 3}
     timeToNextEnemy: 2
     timeToNextWave: 5
     enemiesLeft: 0
@@ -3047,8 +3112,8 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 7991814900635380360, guid: 3caa096d9f9bccb4188f679f800c6e9b, type: 3}
-    - {fileID: 2174588053828347138, guid: 92368b37df9f28a41bb8cfc43cf35777, type: 3}
     - {fileID: 7991814900635380360, guid: 3caa096d9f9bccb4188f679f800c6e9b, type: 3}
+    - {fileID: 2174588053828347138, guid: 92368b37df9f28a41bb8cfc43cf35777, type: 3}
     timeToNextEnemy: 2
     timeToNextWave: 5
     enemiesLeft: 0
@@ -3873,8 +3938,8 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 7991814900635380360, guid: 3caa096d9f9bccb4188f679f800c6e9b, type: 3}
-    - {fileID: 2174588053828347138, guid: 92368b37df9f28a41bb8cfc43cf35777, type: 3}
     - {fileID: 7991814900635380360, guid: 3caa096d9f9bccb4188f679f800c6e9b, type: 3}
+    - {fileID: 2174588053828347138, guid: 92368b37df9f28a41bb8cfc43cf35777, type: 3}
     timeToNextEnemy: 2
     timeToNextWave: 5
     enemiesLeft: 0
