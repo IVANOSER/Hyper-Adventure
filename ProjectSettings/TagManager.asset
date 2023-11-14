@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DeadLine
   - Enemy
+  - Ground
+  - Boss
   layers:
   - Default
   - TransparentFX

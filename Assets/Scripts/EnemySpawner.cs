@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private Transform[] spawnSpots;
+    [SerializeField] private Transform spawnBoss;
+    private int randomSpawnSpot;
     [SerializeField] private float countdown;
-    [SerializeField] private GameObject spawnPoint;
-    public Wave[] waves;
+    public GameObject winWindow;  
 
+    public Wave[] waves;
     public int currentWaveIndex = 0;
     private bool readyToCountDown;
+
+
     private void Start()
     {
-
+        Time.timeScale = 1f;
         readyToCountDown = true;
         for (int i = 0; i < waves.Length; i++)
         {
@@ -22,10 +28,14 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Update()
     {
+        randomSpawnSpot = Random.Range(0, spawnSpots.Length);
         if ( currentWaveIndex >= waves.Length)
-        {
+        {    
+           winWindow.SetActive(true);  
+           Time.timeScale = 0f;                   
             return;
         }
+                         
 
         if (readyToCountDown == true)
         {
@@ -40,21 +50,32 @@ public class EnemySpawner : MonoBehaviour
 
         if (waves[currentWaveIndex].enemiesLeft == 0)
         {
+            Debug.Log("killed wave"+ currentWaveIndex);
             readyToCountDown = true;
-            currentWaveIndex++;
+            currentWaveIndex++;           
         }
+
+    
+        
     }
 
     private IEnumerator SpawnWave()
     {
         if (currentWaveIndex < waves.Length){
         for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
-        {
-            Enemy enemy = Instantiate(waves[currentWaveIndex].enemies[i], transform.position, transform.rotation);
-            enemy.transform.SetParent(spawnPoint.transform);
+        {   
+            if (waves[currentWaveIndex].bossWave == true)
+            {
+                Enemy enemy = Instantiate(waves[currentWaveIndex].enemies[i], spawnBoss.position, Quaternion.identity);
+                enemy.transform.SetParent(spawnBoss);        
+                yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
+            }else{
+            Enemy enemy = Instantiate(waves[currentWaveIndex].enemies[i], spawnSpots[randomSpawnSpot].position, Quaternion.identity);
+            enemy.transform.SetParent(spawnSpots[randomSpawnSpot]);        
             yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
-            
+            }
         }
+       
         }
     }
 }
@@ -67,6 +88,7 @@ public class Wave
     public  float timeToNextEnemy;
     public  float timeToNextWave;
     [HideInInspector] public int enemiesLeft;
+    public bool bossWave;
 }
 
 

@@ -6,17 +6,19 @@ public class Enemy : MonoBehaviour
 {
    [SerializeField] private float speed;
     private EnemySpawner enemySpawner;
-    //private PlayerHP playerHP;
     public bool dead = false;
     public float health, maxHealth = 100f;
+    public float damageToPlayer = 5f;
     private void Start()
     {
         enemySpawner = GetComponentInParent<EnemySpawner>();
         health = maxHealth;
+
     }
     void Update()
     {
-        transform.Translate(transform.forward * -speed * Time.deltaTime, 0f);
+        transform.localRotation = Quaternion.Euler(0, 180, 0);
+        transform.Translate(transform.forward * speed * Time.deltaTime, 0f);
 
         if (dead == true || health <= 0)
         {
@@ -27,14 +29,12 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "DeadLine")
+        if (other.gameObject.tag == "DeadLine"){
+        other.gameObject.TryGetComponent<PlayerHP>(out PlayerHP playerComponent);
+        playerComponent.healthP -= damageToPlayer;
         dead = true;
-        
+        }
     }
-    
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-    }
+       
 
 }

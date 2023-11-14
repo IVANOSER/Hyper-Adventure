@@ -9,12 +9,6 @@ public class Shooting : MonoBehaviour
     public float bulletSpeed = 100f;
     public float timer = 1;
     private float bulletTime;
-    void Start()
-    {
-        
-    }
-
-
     // Update is called once per frame
     void Update()
     {
