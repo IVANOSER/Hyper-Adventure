@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -31,8 +32,9 @@ public class EnemySpawner : MonoBehaviour
         randomSpawnSpot = Random.Range(0, spawnSpots.Length);
         if ( currentWaveIndex >= waves.Length)
         {    
-           winWindow.SetActive(true);  
-           Time.timeScale = 0f;                   
+            FinishLevel();
+            winWindow.SetActive(true);  
+            Time.timeScale = 0f;                   
             return;
         }
                          
@@ -60,6 +62,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator SpawnWave()
+
     {
         if (currentWaveIndex < waves.Length){
         for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
@@ -77,6 +80,11 @@ public class EnemySpawner : MonoBehaviour
         }
        
         }
+    }
+
+    public void FinishLevel()
+    {
+        PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);        
     }
 }
 

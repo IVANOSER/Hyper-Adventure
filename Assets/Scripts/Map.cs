@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Map : MonoBehaviour
+[CreateAssetMenu (fileName = "New Map", menuName = "Scriptable Objects/Map")]
+public class Map : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int mapIndex;
+    public string mapName;
+    public Color nameColor;
+    //public Sprite mapImage;
+    public GameObject mapModel;
+    public Object sceneTOLoad;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

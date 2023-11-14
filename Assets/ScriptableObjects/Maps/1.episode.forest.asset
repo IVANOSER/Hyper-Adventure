@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374fc45a0f7cbc148aaaa2a9c6b375f8, type: 3}
+  m_Name: 1.episode.forest
+  m_EditorClassIdentifier: 
+  mapIndex: 0
+  mapName: Green Forest
+  nameColor: {r: 0, g: 0, b: 0, a: 1}
+  mapModel: {fileID: 1928123463396898, guid: 71be69e7a312bc844ad384574d3624fe, type: 3}
+  sceneTOLoad: {fileID: 102900000, guid: 8f7089bcf65085b4ba8b378e8750d203, type: 3}

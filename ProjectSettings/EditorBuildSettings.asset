@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScreen.unity
     guid: 6a2d749620f865e41a0f002a9072e461
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/1.episode.Forest.unity
+    guid: 8f7089bcf65085b4ba8b378e8750d203
+  - enabled: 1
+    path: Assets/Scenes/2.episode.Rocks.unity
+    guid: 96cd0884eb762b54aa209f70b454fbe8
+  - enabled: 1
+    path: Assets/Scenes/3.episode.Desert.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
